@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- adding css file to the html page -->
+    <link rel="stylesheet" href="\css\home.css">
+
+    <!-- adding fontawsome link -->
+    <script src="https://kit.fontawesome.com/e94e557057.js" crossorigin="anonymous"></script>
+
+    <!-- title  -->
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <!-- <h1>Rendered From Ejs View !!</h1> -->
+
+    
+    <!-- our content starts here -->
+    <div class="content">
+        <!-- heading of the app -->
+        <div id="header" >
+            <h1>Let's Do It! <i style="color: white;" class="fa-solid fa-thumbs-up"></i></h1>
+        </div>
+
+        <!-- upper section to add the task to our list -->
+        <div id="section-add">
+
+            <!-- form to create todo begin -->
+            <form action="/create_todo" method="POST">
+
+                <!-- description feild -->
+                <div id="task-description">
+                    <p>DESCRIPTION</p>
+                    <input type="text" name="description" id="" size="70" placeholder="What do you need to do?" required>
+                </div>
+                
+                <hr>
+
+                <!-- category feild -->
+                <div id="task-category">
+                    <P>CATEGORY</P>
+                    <select name="category" style="color: grey; background-color: inherit;" id="category">
+                        
+                        <option value="" disabled selected hidden>Choose a Category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="School">School</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Family">Family</option>
+                        <option value="Health">Health</option>
+                        <option value="others">others</option>
+    
+                    </select>
+                </div>
+                
+                <!-- date field -->
+                <div id="task-date">
+                    <p>DUE DATE</p>
+                    <input type="date"  name="date" id="" required style="width: 250px; color: grey;">
+                </div>
+                <hr>
+
+                <!-- submission button to add task to the list -->
+                <button type="submit" class="custom-button" id="ad-task-btn">
+                    <i class="fa-solid fa-plus"></i>&nbsp;ADD TASK
+                </button>
+            </form>
+
+        </div>
+
+        <!-- reserving area for the floating button (add and delete)  -->
+        <div style="height: 90px;">
+            <!-- division for buttons -->
+        </div>
+
+        <hr>
+        
+        <!-- lower section to display the todo list -->
+        <div id="delete-and-show-section">
+
+            <div id="todo" style="position: relative;">
+                <!-- list starts from here -->
+                <ul>
+
+                    <!-- form to collect the ids of the taks to be deleted -->
+                    <form action="/delete-todo/" method="GET">
+
+                        <!-- iterating over the todo list -->
+                        <%for(let i of todo_list){%>
+                            <li>
+
+                                <div id="todo-item">
+
+                                    <!-- checkbox to get the id of selected task -->
+                                    <div id="checkbox-container">
+                                        <input id="check" type="checkbox" name="<%= i._id %>">
+                                    </div>
+
+                                    <div id="description-due-container">
+
+                                        <!-- displaying the description of the ith task -->
+                                        <div id="description-text">
+                                            <p><%= i.description %> </p>
+                                        </div>
+
+                                        <!-- displaying the due date of the ith task -->
+                                        <div id="date-text">
+                                            <p><i class="fa-solid fa-calendar-days"></i> &nbsp; <%= i.date %> </p>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- displaying the category of the ith task -->
+                                    <div id="category-icon-container">
+                                        <p><%= i.category %> </p>
+                                    </div>
+
+                                </div>
+                                
+                            </li>
+                            <hr>
+                        <%} %> 
+
+                        <!-- button to delete the selected tasks -->
+                        <button class="custom-button" id="del-btn" type="submit">
+                            <i class="fas fa-trash"></i>&nbsp; DELETE TASKS
+                        </button>
+
+                    </form>
+                    
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- adding script to our html -->
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+
+</html>

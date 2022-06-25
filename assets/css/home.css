@@ -1,0 +1,218 @@
+/* defining variabels */
+:root {
+    --primary-yellow:   rgb(255, 230, 0);
+    --hover-color:rgb(43, 43, 43);
+}
+
+body{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+    margin-top: 0%;
+}
+
+/* top heading */
+#header h1{
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: var(--primary-yellow);
+}
+
+
+/* content box */
+.content{
+    background-color: rgb(0, 0, 0);
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    margin-top: 0%;
+    min-height: 95vh;
+    border : 8px solid rgb(255, 0, 64);
+} 
+
+/* styling input box */
+input,textarea{
+    border: none;
+    background-color: inherit; 
+    color: white;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+/* upper add section  */
+#section-add{
+    position: relative;
+}
+
+#section-add div{
+    display: inline-block;
+    margin: 0%;
+    padding: 5px;
+}
+
+#section-add div:hover{
+    background-color: var(--hover-color);
+
+}
+
+#section-add p{
+    margin: 3px;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+}
+
+#task-description{
+    width: 98%;
+}
+
+#task-category{
+    width: 48%;
+}
+
+#task-category select{
+    width: 250px;
+    border: none;
+}
+
+#task-date{
+    width: 47%;
+  
+}
+
+/* customising the add and delete button */
+.custom-button{
+    border: none;
+    height: 50px;
+    width: 160px;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    color: white;
+    transition: 0.1s all;
+}
+
+.custom-button:hover{
+    transform: scale(0.97);
+    /* border: 1px solid white; */
+}
+
+/* positioning the add button */
+#ad-task-btn{
+    color: black;
+    position: absolute;
+    left: 133px;
+    top: 157px;
+    background-color: var(--primary-yellow);
+}
+
+#ad-task-btn:hover{
+    background-color: rgb(255, 236, 61);
+
+}
+
+/* positioning the delete button */
+#del-btn{
+    position: absolute;
+    left: 302px;
+    top: -89px;
+    background-color:rgb(255, 0, 64);
+}
+
+#del-btn:hover{
+    background-color:rgb(255, 46, 99);
+    
+}
+
+/* styling the lower list section */
+#delete-and-show-section{
+    margin-top: 15px;
+}
+
+#todo ul{
+    margin-top: -15px;
+    list-style-type:none;
+    margin-left: -25px;
+}
+
+#todo li{
+    height: 60px;
+    margin-left: -16px;
+    padding-left: 10px;
+}
+#todo li:hover{
+    background-color: var(--hover-color);
+}
+
+#todo hr{
+    position: relative;
+    left: -15px;
+}
+hr{
+    border-color: grey;
+    width: 598px;
+    text-align: center;
+}
+
+/* to turn the calender icon to light mode */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    margin: 0px;
+    margin-right: 20px !important; 
+}
+
+#todo-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#todo-item p{
+    margin: 0%;
+}
+
+#checkbox-container{
+    width: 8%;
+}
+
+#description-due-container{
+    width: 70%;
+}
+
+#category-icon-container{
+    width: 20%;
+}
+
+#category-icon-container p{
+    font-family:sans-serif;
+    height: 30px;
+    width: 100px;
+    padding-top: 12px;
+    padding-bottom: 1px;
+    color: black;
+    background-color: var(--primary-yellow);
+    /* background-color: grey; */
+    text-align: center;
+    
+}
+
+#description-text{
+    font-family: sans-serif;
+    margin: 8px;
+    font-size: 0.95rem;
+ 
+}
+
+#date-text{
+    margin: 5px;
+    font-size: 0.8rem;
+    color: grey;
+}
